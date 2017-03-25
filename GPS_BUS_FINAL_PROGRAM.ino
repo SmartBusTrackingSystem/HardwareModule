@@ -141,31 +141,6 @@ void loop()
       http.end();
       lastUpdateTime = nowTime;
   }
-  /*
-  if (millis() > 5000 && gps.charsProcessed() < 10)
-    Serial.println(F("No GPS data received: check wiring"));
-  else {
-    time_t nowTime = time(NULL);
-    if ((nowTime - lastUpdateTime) >= 30){
-      String jsonBody = "{\"token\":\"zUFjpZmcr42u2pVpoC83GugrY2N8LwY8\",\"bus_id\":888, \"route_id\":999,\"latitude\":\""+String(gps.location.lat(),7)+"\",\"longitude\":\""+String(gps.location.lng(),7)+"\",\"speed\":"+String(gps.speed.mph(),4)+",\"occupied_seats\":"+numberOfPeople+",\"direction\":"+ directionNo+"}"; 
-      Serial.println(jsonBody);
-      HTTPClient http;
-      String path = "http://shivanageshchandra.com:3000/api/buslog";
-      http.begin(path);
-      http.addHeader("Content-Type", "application/json");
-      int httpCode = http.POST(jsonBody);
-      if (httpCode > 0 ){
-        String payload = http.getString();
-        Serial.println(payload);
-      } else {
-        Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpCode).c_str());
-      }
-      Serial.print("Finished sending"); 
-      http.end();
-      lastUpdateTime = nowTime;
-    }
-    
-  }*/
 }
 
 static void smartDelay(unsigned long ms)                // This custom version of delay() ensures that the gps object is being "fed".
